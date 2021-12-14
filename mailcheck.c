@@ -20,7 +20,6 @@ int mailcheck(char *email)
   char pQuery[800];
   int count;
 
-//   sprintf(buffer,"%s\0",email);
   sprintf(buffer,"%s",email);
   pUname = strtok (buffer,"@");
   pDname = strtok (NULL,"@");
@@ -30,15 +29,9 @@ int mailcheck(char *email)
   strcat(pQuery,pUname);
   strcat(pQuery,"\' OR valias.alias = \'");
   strcat(pQuery,pUname);
-//  strcat(pQuery,"\'\0");
-
-  /* Look at 31 - mysql_options() to read from my.cnf */
 
   mysql_init(&mysql);
 
-  // Check to see if domain has catchall section...
-
-  // Connect & query - Error handling...
   if(!mysql_real_connect(&mysql,"localhost","dbuser","dbpass","vpopmail",0,NULL,0)){
     printf("\n%s\n",mysql_error(&mysql));
     mysql_close(&mysql);
@@ -72,10 +65,8 @@ int mailcheck(char *email)
 }
 
 int main(int argc, char *argv[])
-{  // mailcheck returns 0 on okay, 1 on db_error, 2 on invalid user, 3 on domain locked
+{
   int mchk = 0;
-
-//  printf("MySQL C Client Version: %s\n",mysql_get_client_info());
 
   if(argc<2) {
     printf("Invalid Search String\n");
@@ -88,7 +79,6 @@ int main(int argc, char *argv[])
   }
   else
   {
-    // switch(
     printf("User unknown\n");
     exit(1);
   }
