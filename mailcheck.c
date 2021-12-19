@@ -20,6 +20,7 @@ int mailcheck(char *email)
   char pQuery[800];
   int count;
 
+
   sprintf(buffer,"%s",email);
   pUname = strtok (buffer,"@");
   pDname = strtok (NULL,"@");
