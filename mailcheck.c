@@ -1,6 +1,7 @@
 //
 // mailcheck.c - Use with plesk to eliminate mails arriving which cannot be delivered
 // (c) 2004 Bill Kibby <bill@bkibby.com> All rights reserved, etc.
+// 2021 playing with Git
 //
 
 #include <stdio.h>
